@@ -9,11 +9,10 @@ const Services = () => {
 
   // Placeholder image URLs (replace with your actual image URLs or paths)
  const images = {
-  domestic: "/images/fly_from_minna_to_abuja_to_lagos.jpg",
-  hajj: "/images/international_hajj_basic_package.jpg",
-  umrah: "/images/umrah_package.jpg",
+  domestic: "/images/fly%20from%20minna%20to%20abuja%20to%20lagos.jpg",
+  hajj: "/images/international%20hajj%20basic%20package.jpg",
+  umrah: "/images/umrah%20package.jpg",
 };
-
   const openModal = (image) => {
     setSelectedImage(image);
     setIsModalOpen(true);
