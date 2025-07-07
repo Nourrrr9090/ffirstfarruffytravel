@@ -35,7 +35,7 @@ const Hero = () => {
               size="lg"
               className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 text-lg rounded-full"
             >
-              FLY FROM MINNA TO HAJJ & UMRAH
+              START YOUR PILGRIMAGE
             </Button>
             <Button
               size="lg"

@@ -7,17 +7,16 @@ const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
- const images = {
-  domestic: "/images/fly%20from%20minna%20to%20abuja%20to%20lagos.jpg",
-  hajj: "/images/international%20hajj%20basic%20package.jpg",
-  umrah: "/images/umrah%20package.jpg",
-};
+  const images = {
+    domestic: "/images/fly from minna to abuja to lagos.jpg",
+    hajj: "/images/international hajj basic package.jpg",
+    umrah: "/images/umrah package.jpg",
+  };
 
-const openModal = (image: string) => {
-  setSelectedImage(image);
-  setIsModalOpen(true);
-};
-
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -26,53 +25,12 @@ const openModal = (image: string) => {
 
   return (
     <>
-      {/* About Us Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-green-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl font-extrabold text-emerald-800 mb-6">Welcome to Farrufy Travels.</h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              <strong className="text-gray-800">At Farrufy Travels,</strong><br /><br />
-              we believe that every journey is more than just a destination; it’s a spiritual experience,
-              a moment of reflection, and a step closer to Allah.
-              <br /><br />
-              Whether you’re embarking on your first Umrah, fulfilling the sacred pillar of Hajj, or exploring Islamic heritage
-              sites around the world, we are here to walk with you every step of the way.
-              <br /><br />
-              With years of trusted experience, a dedicated team, and a deep understanding of the needs of Muslim travelers,
-              First Farrufy Travel & Tours has become a name our clients return to again and again.
-              <br /><br />
-              Join the First Farrufy family and let us help you travel with ease. <br />
-              <strong>Your journey begins here.</strong>
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              As a proudly Nigerian company with global reach, we are committed to delivering reliable, high-quality services
-              to pilgrims, tourists, and business travelers alike.
-              <br /><br />
-              Whether you're performing Hajj or Umrah, planning your dream vacation, or booking flights,
-              <span className="text-emerald-700 font-semibold"> First Farrufy</span> is here to serve you.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Our mission is to make your journey seamless, spiritually fulfilling, and unforgettable —
-              guided by sincerity, integrity, and strong Islamic values.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
+      {/* Our Services */}
       <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-emerald-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600">
-              Do you desire to change your scenery? Look no further than First Farrufy Travels & Tours.
-              We are a leading travel and tour company in Nigeria with a distinct position in the aviation industry.
-              <br /><br />
-              Our experienced and committed travel agents are dedicated to creating unforgettable travel experiences.
-              <br /><br />
-              Let us plan your vacation, book flights for leisure or official engagements, and facilitate your study visas.
-            </p>
+            <p className="text-xl text-gray-600">Professional travel services you can trust</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -88,9 +46,9 @@ const openModal = (image: string) => {
                 <p className="text-gray-600 mb-4">Year-round Umrah pilgrimage services</p>
                 <div className="bg-green-50 p-4 rounded-lg mb-4">
                   <div className="flex items-center justify-center mb-2">
-                    {[...Array(3)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
-                    ))}
+                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
                     <span className="ml-2 text-sm">3 Star Package</span>
                   </div>
                   <p className="text-2xl font-bold text-green-700">From ₦2.65M</p>
@@ -115,14 +73,14 @@ const openModal = (image: string) => {
                 <p className="text-gray-600 mb-4">Complete Hajj pilgrimage packages</p>
                 <div className="bg-red-50 p-4 rounded-lg mb-4">
                   <div className="flex items-center justify-center mb-2">
-                    {[...Array(3)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
-                    ))}
+                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
                     <span className="ml-2 text-sm">3 Star Package</span>
                   </div>
-                  <p className="text-2xl font-bold text-red-700">From ₦8.450M</p>
+                  <p className="text-2xl font-bold text-red-700">From ₦5.8M</p>
                   <p className="text-sm text-gray-600">June 2025</p>
-                  <p className="text-xs text-red-600 mt-2">Premium 4 & 5 Star packages available</p>
+                  <p className="text-xs text-red-600 mt-2">Premium 4 & 5 Star packages also available</p>
                 </div>
                 <Button className="w-full bg-red-600 hover:bg-red-700" onClick={() => openModal(images.hajj)}>
                   Learn More
@@ -162,6 +120,60 @@ const openModal = (image: string) => {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Brand Ambassador Section */}
+      <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-slate-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet Our Brand Ambassador</h2>
+            <p className="text-lg text-gray-600">A trusted face behind our mission and values</p>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto">
+            <div className="w-full md:w-1/2">
+              <img
+                src="/images/WhatsApp Image 2025-07-07 at 23.36.25_018b2beaddddd.jpg"
+                alt="Brand Ambassador"
+                className="rounded-lg shadow-md w-full object-cover"
+              />
+            </div>
+
+            <div className="w-full md:w-1/2">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-2">Alhaji Nurudeen Isyaku Daza</h3>
+              <p className="text-gray-700 text-lg mb-4">
+                A seasoned traveler, community leader, and passionate advocate for spiritual journeys,
+                Alhaji Nurudeen Isyaku Daza has proudly represented First Farrufy Travel & Tours as our Brand Ambassador
+                since 2025.
+              </p>
+              <p className="text-gray-600">
+                With a deep understanding of the spiritual and emotional significance of Hajj and Umrah,
+                he works closely with us to ensure that our services not only meet but exceed expectations—
+                inspiring confidence in all who travel with us.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pilgrimage Partners Section */}
+      <section className="py-20 mt-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Pilgrimage Partners</h2>
+            <p className="text-lg text-gray-700">
+              At <strong>First Farrufy Travel</strong>, we’re more than a travel agency. We’re a team of dedicated professionals and passionate believers committed to making your Hajj and Umrah experience spiritually fulfilling and worry-free.
+              <br /><br />
+              Get to know the people who make it all possible—including our respected Brand Ambassador, who shares and supports our vision of faith, excellence, and service.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+            <img src="/images/WhatsApp Image 2025-07-07 at 23.36.05_fd21828cmeeetus.jpg" alt="Team member 1" className="rounded-lg shadow-md object-cover w-full h-64" />
+            <img src="/images/WhatsApp Image 2025-07-07 at 23.36.06_a395f8e5meeetourambbb.jpg" alt="Team member 2" className="rounded-lg shadow-md object-cover w-full h-64" />
+            <img src="/images/WhatsApp Image 2025-07-07 at 23.36.10_0c92dc34brandambassador.jpg" alt="Team member 3" className="rounded-lg shadow-md object-cover w-full h-64" />
+          </div>
         </div>
       </section>
     </>
