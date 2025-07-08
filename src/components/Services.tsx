@@ -25,7 +25,7 @@ const Services = () => {
 
   return (
     <>
-      {/* Our Services */}
+      {/* Services Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-emerald-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -46,9 +46,9 @@ const Services = () => {
                 <p className="text-gray-600 mb-4">Year-round Umrah pilgrimage services</p>
                 <div className="bg-green-50 p-4 rounded-lg mb-4">
                   <div className="flex items-center justify-center mb-2">
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                    {[...Array(3)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
+                    ))}
                     <span className="ml-2 text-sm">3 Star Package</span>
                   </div>
                   <p className="text-2xl font-bold text-green-700">From ₦2.65M</p>
@@ -73,9 +73,9 @@ const Services = () => {
                 <p className="text-gray-600 mb-4">Complete Hajj pilgrimage packages</p>
                 <div className="bg-red-50 p-4 rounded-lg mb-4">
                   <div className="flex items-center justify-center mb-2">
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                    {[...Array(3)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
+                    ))}
                     <span className="ml-2 text-sm">3 Star Package</span>
                   </div>
                   <p className="text-2xl font-bold text-red-700">From ₦5.8M</p>
@@ -123,6 +123,76 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Hajj Moments Gallery */}
+      <section className="py-20 bg-[#f8fafc]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Hajj Moments Gallery</h2>
+            <p className="text-lg text-gray-600">Memorable moments captured during our customers' Hajj journeys</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              "IMG-20250707-WA0009adddddd.jpg",
+              "IMG-20250707-WA0013adddd.jpg",
+              "IMG-20250707-WA0025walking.jpg",
+              "IMG-20250707-WA0016adddd.jpg",
+              "IMG-20250707-WA0018adddd.jpg",
+              "IMG-20250707-WA0023lastt.jpg",
+            ].map((img, i) => (
+              <img key={i} src={`/images/${img}`} alt={`Hajj moment ${i + 1}`} className="rounded-lg shadow-md object-cover w-full h-64" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Customer Testimonials</h2>
+            <p className="text-lg text-gray-600">What our customers are saying about us</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                text: "This was my first time traveling for Umrah, and I was a bit nervous. But with First Farrufy handling everything—from visa processing to hotel arrangements—I was able to focus on my ibaadah. Jazakumullahu khairan.",
+                name: "HAJIYA JAMILA YABO",
+                location: "Abuja, Nigeria",
+              },
+              {
+                text: "Their customer service is top-notch. They were patient with all my questions and made sure I was comfortable at every stage of the journey. I truly appreciate their professionalism and Islamic values.",
+                name: "ALHAJI ABDULGANIYU ABDULRAZAQ AREMU",
+                location: "Ilorin, Nigeria",
+              },
+              {
+                text: "Alhamdulillah. This was our third time traveling with them, and they never disappoint. We had an amazing Hajj experience with First Farrufy. The accommodations were close to the Haramain, the guides were knowledgeable, and the entire process was smooth. We’ve already recommended them to our family.",
+                name: "ALH MUKHTARI & HAJIYA RABI KURABAU MAMMAN",
+                location: "Katsina, Nigeria",
+              },
+              {
+                text: "Going for Umrah with First Farrufy Travel & Tours was a dream come true. From start to finish, everything was so organized and stress-free. The team was always ready to help, and I felt spiritually uplifted throughout the journey. May Allah bless them for making it easy for us. Amin 🤲🏽",
+                name: "BARRISTER YARIMA YAKUBU",
+                location: "Minna, Nigeria",
+              },
+              {
+                text: "Assalamu alai'kum. Mun sauka lafia lau Alhamdulillah. Hotel din yayi kyau sosai. Mungode.",
+                name: "ALH ALHASSAN SONFADA",
+                location: "Lapai, Nigeria",
+              },
+            ].map((t, i) => (
+              <Card key={i} className="p-6 bg-gray-50 shadow-sm">
+                <CardContent>
+                  <p className="text-gray-700 italic mb-4">“{t.text}”</p>
+                  <p className="font-semibold text-gray-900">{t.name}</p>
+                  <p className="text-sm text-gray-600">{t.location}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Brand Ambassador Section */}
       <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-slate-100">
         <div className="container mx-auto px-4">
@@ -157,7 +227,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Pilgrimage Partners Section */}
+      {/* Pilgrimage Partners */}
       <section className="py-20 mt-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 max-w-3xl mx-auto">
@@ -170,9 +240,13 @@ const Services = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
-            <img src="/images/WhatsApp Image 2025-07-07 at 23.36.05_fd21828cmeeetus.jpg" alt="Team member 1" className="rounded-lg shadow-md object-cover w-full h-64" />
-            <img src="/images/WhatsApp Image 2025-07-07 at 23.36.06_a395f8e5meeetourambbb.jpg" alt="Team member 2" className="rounded-lg shadow-md object-cover w-full h-64" />
-            <img src="/images/WhatsApp Image 2025-07-07 at 23.36.10_0c92dc34brandambassador.jpg" alt="Team member 3" className="rounded-lg shadow-md object-cover w-full h-64" />
+            {[
+              "WhatsApp Image 2025-07-07 at 23.36.05_fd21828cmeeetus.jpg",
+              "WhatsApp Image 2025-07-07 at 23.36.06_a395f8e5meeetourambbb.jpg",
+              "WhatsApp Image 2025-07-07 at 23.36.10_0c92dc34brandambassador.jpg",
+            ].map((img, i) => (
+              <img key={i} src={`/images/${img}`} alt={`Team member ${i + 1}`} className="rounded-lg shadow-md object-cover w-full h-64" />
+            ))}
           </div>
         </div>
       </section>
