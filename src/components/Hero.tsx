@@ -4,14 +4,14 @@ import React from "react";
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative bg-cover bg-center text-white"
-      style={{ backgroundImage: "url(/images/image.jpg)" }}
+      className="relative bg-cover bg-center bg-no-repeat text-white min-h-screen"
+      style={{ backgroundImage: "url(/images/bgggggg.jpg)" }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+      <div className="absolute inset-0 bg-black/50 z-0"></div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 py-24 md:py-32">
+      <div className="relative z-10 container mx-auto px-4 py-24 md:py-32 flex items-center justify-center h-full">
         <div className="max-w-3xl mx-auto text-center">
           {/* Icon */}
           <div className="flex justify-center mb-5">
