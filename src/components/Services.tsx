@@ -73,7 +73,7 @@ const Services = () => {
               {
                 type: "Hajj Packages",
                 description: "Complete Hajj pilgrimage packages",
-                price: "₦8.450M",
+                price: "₦8.450m",
                 date: "June 2025",
                 color: "red",
                 image: images.hajj,
