@@ -52,74 +52,113 @@ const Services = () => {
   return (
     <>
       {/* Services Section */}
-      <section className="relative py-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/HajjjimagessssBG.jpg')" }}>
-        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
-        <div className="relative container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-700">Professional travel services you can trust</p>
-          </div>
+<section
+  className="relative py-20 bg-cover bg-center"
+  style={{ backgroundImage: "url('/images/HajjjimagessssBG.jpg')" }}
+>
+  <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+  <div className="relative container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+      <p className="text-xl text-gray-700">Professional travel services you can trust</p>
+    </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                type: "Umrah Packages",
-                description: "Year-round Umrah pilgrimage services",
-                price: "₦2.650M",
-                date: "July to December 2025",
-                color: "green",
-                image: images.umrah,
-              },
-              {
-                type: "Hajj Packages",
-                description: "Complete Hajj pilgrimage packages",
-                price: "₦8.450M",
-                date: "June 2025",
-                color: "pink",
-                image: images.hajj,
-              },
-              {
-                type: "Domestic Flights",
-                description: "Fly easily within Nigeria",
-                price: "₦100,000",
-                date: "Minna → Abuja → Lagos",
-                color: "blue",
-                image: images.domestic,
-              },
-            ].map(({ type, description, price, date, color, image }, i) => (
-              <Card key={i} className="hover:shadow-xl transition-shadow duration-300">
-                <CardHeader className="text-center">
-                  <div className={`bg-${color}-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4`}>
-                    <Plane className={`h-8 w-8 text-${color}-600`} />
+    <div className="grid md:grid-cols-3 gap-8 mb-16">
+      {[
+        {
+          type: "Umrah Packages",
+          description: "Year-round Umrah pilgrimage services",
+          price: "₦2.650M",
+          date: "July to December 2025",
+          color: "green",
+          image: images.umrah,
+        },
+        {
+          type: "Hajj Packages",
+          description: "Complete Hajj pilgrimage packages",
+          price: "₦8.450M",
+          date: "June 2025",
+          color: "pink",
+          image: images.hajj,
+        },
+        {
+          type: "Domestic Flights",
+          description: "Fly easily within Nigeria",
+          price: "₦100,000",
+          date: "Minna → Abuja → Lagos",
+          color: "blue",
+          image: images.domestic,
+        },
+      ].map(({ type, description, price, date, color, image }, i) => {
+        // Tailwind-safe color mapping
+        const colorClasses = {
+          green: {
+            bgLight: "bg-green-100",
+            text: "text-green-600",
+            bgPrice: "bg-green-50",
+            priceText: "text-green-700",
+            hover: "hover:bg-green-700",
+            btn: "bg-green-600",
+            infoText: "text-green-600",
+          },
+          pink: {
+            bgLight: "bg-pink-100",
+            text: "text-pink-600",
+            bgPrice: "bg-pink-50",
+            priceText: "text-pink-700",
+            hover: "hover:bg-pink-700",
+            btn: "bg-pink-600",
+            infoText: "text-pink-600",
+          },
+          blue: {
+            bgLight: "bg-blue-100",
+            text: "text-blue-600",
+            bgPrice: "bg-blue-50",
+            priceText: "text-blue-700",
+            hover: "hover:bg-blue-700",
+            btn: "bg-blue-600",
+            infoText: "text-blue-600",
+          },
+        };
+
+        const classes = colorClasses[color];
+
+        return (
+          <Card key={i} className="hover:shadow-xl transition-shadow duration-300">
+            <CardHeader className="text-center">
+              <div className={`${classes.bgLight} rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4`}>
+                <Plane className={`h-8 w-8 ${classes.text}`} />
+              </div>
+              <CardTitle className="text-xl">{type}</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-gray-600 mb-4">{description}</p>
+              <div className={`${classes.bgPrice} p-4 rounded-lg mb-4`}>
+                {type !== "Domestic Flights" && (
+                  <div className="flex items-center justify-center mb-2">
+                    {[...Array(3)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
+                    ))}
+                    <span className="ml-2 text-sm">3 Star Package</span>
                   </div>
-                  <CardTitle className="text-xl">{type}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-gray-600 mb-4">{description}</p>
-                  <div className={`bg-${color}-50 p-4 rounded-lg mb-4`}>
-                    {type !== "Domestic Flights" && (
-                      <div className="flex items-center justify-center mb-2">
-                        {[...Array(3)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
-                        ))}
-                        <span className="ml-2 text-sm">3 Star Package</span>
-                      </div>
-                    )}
-                    <p className={`text-2xl font-bold text-${color}-700`}>From {price}</p>
-                    <p className="text-sm text-gray-600">{date}</p>
-                    {type !== "Domestic Flights" && (
-                      <p className={`text-xs text-${color}-600 mt-2`}>4 & 5 Star packages available</p>
-                    )}
-                  </div>
-                  <Button className={`w-full bg-${color}-600 hover:bg-${color}-700`} onClick={() => openModal(image)}>
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+                )}
+                <p className={`text-2xl font-bold ${classes.priceText}`}>From {price}</p>
+                <p className="text-sm text-gray-600">{date}</p>
+                {type !== "Domestic Flights" && (
+                  <p className={`text-xs mt-2 ${classes.infoText}`}>4 & 5 Star packages available</p>
+                )}
+              </div>
+              <Button className={`w-full ${classes.btn} ${classes.hover}`} onClick={() => openModal(image)}>
+                Learn More
+              </Button>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
 
       {/* Flier / Promotion Section */}
 <section className="py-20 bg-yellow-50">
