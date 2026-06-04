@@ -164,7 +164,7 @@ const Services = () => {
                 </div>
                 <Button
                   className="w-full bg-green-600 hover:bg-green-700"
-                  onClick={() => openModal(["/public/images/umrah after hajj 1.jpg"])}
+                  onClick={() => openModal(["/images/umrahafterhajj1.jpg"])}
                 >
                   Learn More
                 </Button>
@@ -186,7 +186,7 @@ const Services = () => {
                 </div>
                 <Button
                   className="w-full bg-green-600 hover:bg-green-700"
-                  onClick={() => openModal(["/public/images/umrah maulud newww.jpeg"])}
+                  onClick={() => openModal(["/images/umrahmauludnewww.jpeg"])}
                 >
                   Learn More
                 </Button>
@@ -208,7 +208,7 @@ const Services = () => {
                 </div>
                 <Button
                   className="w-full bg-green-600 hover:bg-green-700"
-                  onClick={() => openModal(["/public/images/nov and dec umrah 26. 3.jpg"])}
+                  onClick={() => openModal(["/images/novanddecumrah26.3.jpg"])}
                 >
                   Learn More
                 </Button>
@@ -230,7 +230,7 @@ const Services = () => {
                 </div>
                 <Button
                   className="w-full bg-green-600 hover:bg-green-700"
-                  onClick={() => openModal(["/public/images/ramadan umrah 2027 4.jpg"])}
+                  onClick={() => openModal(["/images/ramadanumrah2027.4.jpg"])}
                 >
                   Learn More
                 </Button>
@@ -252,7 +252,7 @@ const Services = () => {
                 </div>
                 <Button
                   className="w-full bg-pink-600 hover:bg-pink-700"
-                  onClick={() => openModal(["/public/images/hajj package 27.jpg"])}
+                  onClick={() => openModal(["/images/hajjpackage27.jpg"])}
                 >
                   Learn More
                 </Button>
@@ -274,7 +274,7 @@ const Services = () => {
                 </div>
                 <Button
                   className="w-full bg-amber-600 hover:bg-amber-700"
-                  onClick={() => openModal(["/public/images/domestic flights neww.jpeg"])}
+                  onClick={() => openModal(["/images/domesticflightsneww.jpeg"])}
                 >
                   Learn More
                 </Button>
