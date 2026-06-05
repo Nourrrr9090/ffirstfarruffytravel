@@ -93,6 +93,23 @@ const Services = () => {
     "WhatsApp Image 2025-07-07 at 23.36.06_a395f8e5meeetourambbb.jpg",
     "WhatsApp Image 2025-07-07 at 23.36.10_0c92dc34brandambassador.jpg",
   ];
+const customerGalleryImages = [
+"customer1.jpg",
+"customer2.jpg",
+"customer3.jpg",
+"customer4.jpg",
+"customer5.jpg",
+"customer6.jpg",
+"customer7.jpg",
+"customer8.jpg",
+"customer9.jpg",
+"customer10.jpg",
+"customer11.jpg",
+"customer12.jpg",
+"customer13.jpg",
+"customer14.jpg",
+"customer15.jpg",
+];
 
   const testimonials = [
     {
@@ -310,6 +327,34 @@ const Services = () => {
           </div>
         </div>
       </section>
+{/* Customer Gallery */}
+
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        Customer Gallery
+      </h2>
+      <p className="text-lg text-gray-600">
+        Memorable moments from our valued customers
+      </p>
+    </div>
+
+```
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+  {customerGalleryImages.map((img, i) => (
+    <img
+      key={i}
+      src={`/images/${img}`}
+      alt={`Customer ${i + 1}`}
+      className="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+    />
+  ))}
+</div>
+```
+
+  </div>
+</section>
 
       {/* Hajj Moments Gallery */}
       <section className="py-20 bg-[#f8fafc]">
