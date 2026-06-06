@@ -301,8 +301,6 @@ const customerGalleryImages = [
         </div>
       </section>
 
-      {/* All other sections remain unchanged */}
-
       {/* Flier Section */}
       <section className="py-20 bg-yellow-50">
         <div className="container mx-auto px-4 text-center">
@@ -327,34 +325,31 @@ const customerGalleryImages = [
           </div>
         </div>
       </section>
-{/* Customer Gallery */}
 
-<section className="py-20 bg-white">
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-gray-900 mb-2">
-        Customer Gallery
-      </h2>
-      <p className="text-lg text-gray-600">
-        Memorable moments from our valued customers
-      </p>
-    </div>
+      {/* Customer Gallery - ONLY THIS SECTION WAS MODIFIED */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Customer Gallery
+            </h2>
+            <p className="text-lg text-gray-600">
+              Memorable moments from our valued customers
+            </p>
+          </div>
 
-```
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-  {customerGalleryImages.map((img, i) => (
-    <img
-      key={i}
-      src={`/images/${img}`}
-      alt={`Customer ${i + 1}`}
-      className="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-    />
-  ))}
-</div>
-```
-
-  </div>
-</section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {customerGalleryImages.map((img, i) => (
+              <img
+                key={i}
+                src={`/images/${img}`}
+                alt={`Customer ${i + 1}`}
+                className="w-full h-80 sm:h-72 md:h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Hajj Moments Gallery */}
       <section className="py-20 bg-[#f8fafc]">
