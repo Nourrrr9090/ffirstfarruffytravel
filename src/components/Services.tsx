@@ -344,7 +344,7 @@ const customerGalleryImages = [
                 key={i}
                 src={`/images/${img}`}
                 alt={`Customer ${i + 1}`}
-                className="w-full h-80 sm:h-72 md:h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                className="w-full h-96 sm:h-80 md:h-72 object-contain rounded-lg shadow-md hover:scale-105 transition-transform duration-300 bg-gray-50 p-2"
               />
             ))}
           </div>
