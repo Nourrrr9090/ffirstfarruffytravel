@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ChangeEvent, KeyboardEvent } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plane, Globe, X, Send, MessageCircle } from "lucide-react";
@@ -15,13 +15,7 @@ const Services = () => {
     },
   ]);
   const [userInput, setUserInput] = useState("");
-  const chatEndRef = useRef(null);
-
-  const images = {
-    domestic: "/umrah after hajj.jpg",
-    hajj: "/images/international hajj basic package.jpg",
-    umrah: "/images/umrah package.jpg",
-  };
+  const chatEndRef = useRef<HTMLDivElement | null>(null);
 
   const openModal = (imageArray: string[]) => {
     setSelectedImages(imageArray);
@@ -93,23 +87,12 @@ const Services = () => {
     "WhatsApp Image 2025-07-07 at 23.36.06_a395f8e5meeetourambbb.jpg",
     "WhatsApp Image 2025-07-07 at 23.36.10_0c92dc34brandambassador.jpg",
   ];
-const customerGalleryImages = [
-"customer1.jpg",
-"customer2.jpg",
-"customer3.jpg",
-"customer4.jpg",
-"customer5.jpg",
-"customer6.jpg",
-"customer7.jpg",
-"customer8.jpg",
-"customer9.jpg",
-"customer10.jpg",
-"customer11.jpg",
-"customer12.jpg",
-"customer13.jpg",
-"customer14.jpg",
-"customer15.jpg",
-];
+
+  const customerGalleryImages = [
+    "customer1.jpg","customer2.jpg","customer3.jpg","customer4.jpg","customer5.jpg",
+    "customer6.jpg","customer7.jpg","customer8.jpg","customer9.jpg","customer10.jpg",
+    "customer11.jpg","customer12.jpg","customer13.jpg","customer14.jpg","customer15.jpg",
+  ];
 
   const testimonials = [
     {
@@ -157,149 +140,166 @@ const customerGalleryImages = [
         </div>
       </section>
 
-      {/* Packages Section - Now with single image each */}
-      <section className="py-20 bg-gray-950">
+      {/* ==================== MORE PROFESSIONAL PACKAGES SECTION ==================== */}
+      <section className="py-24 bg-gray-950">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Our Packages</h2>
-            <p className="text-gray-400">Choose from our trusted travel packages</p>
+            <h2 className="text-5xl font-bold text-white mb-4 tracking-tight">
+              Our Packages
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Premium pilgrimage packages designed for comfort, spirituality, and excellence
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* 1. Umrah After Hajj */}
-            <Card className="bg-gray-900 border-gray-800 hover:border-yellow-400 text-white transition-all hover:-translate-y-1">
-              <CardHeader className="text-center pt-8">
-                <div className="mx-auto w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                  <Plane className="h-10 w-10 text-yellow-400" />
+            <Card className="bg-gray-900 border border-gray-800 hover:border-amber-500 text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+              <CardHeader className="text-center pt-10 pb-6">
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-3xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:border-amber-500/40 transition-colors">
+                  <Plane className="h-11 w-11 text-amber-400" />
                 </div>
-                <CardTitle className="text-2xl">Umrah After Hajj</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-white">Umrah After Hajj</CardTitle>
               </CardHeader>
-              <CardContent className="text-center px-8 pb-8">
-                <p className="text-gray-400 mb-6">2026 - 3 Star Package</p>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6">
-                  <p className="text-3xl font-bold">From &#8358;2.7M</p>
+              <CardContent className="text-center px-8 pb-10">
+                <p className="text-gray-400 mb-8 text-lg">2026 - 3 Star Premium Package</p>
+                
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-7 mb-8 border border-gray-700">
+                  <p className="text-4xl font-bold text-white">From ₦2.7M</p>
                 </div>
+
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-lg py-6 rounded-xl font-medium transition-all"
                   onClick={() => openModal(["/images/umrahafterhajj1.jpg"])}
                 >
-                  Learn More
+                  View Package Details
                 </Button>
               </CardContent>
             </Card>
 
             {/* 2. Umrah Maulud */}
-            <Card className="bg-gray-900 border-gray-800 hover:border-yellow-400 text-white transition-all hover:-translate-y-1">
-              <CardHeader className="text-center pt-8">
-                <div className="mx-auto w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                  <Plane className="h-10 w-10 text-yellow-400" />
+            <Card className="bg-gray-900 border border-gray-800 hover:border-amber-500 text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+              <CardHeader className="text-center pt-10 pb-6">
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-3xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:border-amber-500/40 transition-colors">
+                  <Plane className="h-11 w-11 text-amber-400" />
                 </div>
-                <CardTitle className="text-2xl">Umrah Maulud 2026</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-white">Umrah Maulud 2026</CardTitle>
               </CardHeader>
-              <CardContent className="text-center px-8 pb-8">
-                <p className="text-gray-400 mb-6">3 Star Package - 1447AH</p>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6">
-                  <p className="text-3xl font-bold">From &#8358;2.7M</p>
+              <CardContent className="text-center px-8 pb-10">
+                <p className="text-gray-400 mb-8 text-lg">3 Star Package - 1447AH</p>
+                
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-7 mb-8 border border-gray-700">
+                  <p className="text-4xl font-bold text-white">From ₦2.7M</p>
                 </div>
+
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-lg py-6 rounded-xl font-medium transition-all"
                   onClick={() => openModal(["/images/umrahmauludnewww.jpeg"])}
                 >
-                  Learn More
+                  View Package Details
                 </Button>
               </CardContent>
             </Card>
 
             {/* 3. Umrah Nov / Dec */}
-            <Card className="bg-gray-900 border-gray-800 hover:border-yellow-400 text-white transition-all hover:-translate-y-1">
-              <CardHeader className="text-center pt-8">
-                <div className="mx-auto w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                  <Plane className="h-10 w-10 text-yellow-400" />
+            <Card className="bg-gray-900 border border-gray-800 hover:border-amber-500 text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+              <CardHeader className="text-center pt-10 pb-6">
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-3xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:border-amber-500/40 transition-colors">
+                  <Plane className="h-11 w-11 text-amber-400" />
                 </div>
-                <CardTitle className="text-2xl">Umrah Nov &amp; Dec 2026</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-white">Umrah Nov &amp; Dec 2026</CardTitle>
               </CardHeader>
-              <CardContent className="text-center px-8 pb-8">
-                <p className="text-gray-400 mb-6">3 Star Basic Package</p>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6">
-                  <p className="text-3xl font-bold">From &#8358;3.1M</p>
+              <CardContent className="text-center px-8 pb-10">
+                <p className="text-gray-400 mb-8 text-lg">3 Star Basic Package</p>
+                
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-7 mb-8 border border-gray-700">
+                  <p className="text-4xl font-bold text-white">From ₦3.1M</p>
                 </div>
+
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-lg py-6 rounded-xl font-medium transition-all"
                   onClick={() => openModal(["/images/novanddecumrah26.3.jpg"])}
                 >
-                  Learn More
+                  View Package Details
                 </Button>
               </CardContent>
             </Card>
 
             {/* 4. Ramadan Umrah */}
-            <Card className="bg-gray-900 border-gray-800 hover:border-yellow-400 text-white transition-all hover:-translate-y-1">
-              <CardHeader className="text-center pt-8">
-                <div className="mx-auto w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                  <Plane className="h-10 w-10 text-yellow-400" />
+            <Card className="bg-gray-900 border border-gray-800 hover:border-amber-500 text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+              <CardHeader className="text-center pt-10 pb-6">
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-3xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:border-amber-500/40 transition-colors">
+                  <Plane className="h-11 w-11 text-amber-400" />
                 </div>
-                <CardTitle className="text-2xl">Ramadan Umrah</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-white">Ramadan Umrah</CardTitle>
               </CardHeader>
-              <CardContent className="text-center px-8 pb-8">
-                <p className="text-gray-400 mb-6">Last 15 Days - 3 Star</p>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6">
-                  <p className="text-3xl font-bold">From &#8358;4.9M</p>
+              <CardContent className="text-center px-8 pb-10">
+                <p className="text-gray-400 mb-8 text-lg">Last 15 Days - 3 Star</p>
+                
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-7 mb-8 border border-gray-700">
+                  <p className="text-4xl font-bold text-white">From ₦4.9M</p>
                 </div>
+
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-lg py-6 rounded-xl font-medium transition-all"
                   onClick={() => openModal(["/images/ramadanumrah2027.4.jpg"])}
                 >
-                  Learn More
+                  View Package Details
                 </Button>
               </CardContent>
             </Card>
 
             {/* 5. Hajj 3 Star */}
-            <Card className="bg-gray-900 border-gray-800 hover:border-yellow-400 text-white transition-all hover:-translate-y-1">
-              <CardHeader className="text-center pt-8">
-                <div className="mx-auto w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                  <Plane className="h-10 w-10 text-yellow-400" />
+            <Card className="bg-gray-900 border border-gray-800 hover:border-amber-500 text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+              <CardHeader className="text-center pt-10 pb-6">
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-3xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:border-amber-500/40 transition-colors">
+                  <Plane className="h-11 w-11 text-amber-400" />
                 </div>
-                <CardTitle className="text-2xl">Hajj 3 Star Basic</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-white">Hajj 3 Star Basic</CardTitle>
               </CardHeader>
-              <CardContent className="text-center px-8 pb-8">
-                <p className="text-gray-400 mb-6">2027 / 1448AH</p>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6">
-                  <p className="text-3xl font-bold">From &#8358;8.5M</p>
+              <CardContent className="text-center px-8 pb-10">
+                <p className="text-gray-400 mb-8 text-lg">2027 / 1448AH</p>
+                
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-7 mb-8 border border-gray-700">
+                  <p className="text-4xl font-bold text-white">From ₦8.5M</p>
                 </div>
+
                 <Button
-                  className="w-full bg-pink-600 hover:bg-pink-700"
+                  className="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-lg py-6 rounded-xl font-medium transition-all"
                   onClick={() => openModal(["/images/hajjpackage27.jpg"])}
                 >
-                  Learn More
+                  View Package Details
                 </Button>
               </CardContent>
             </Card>
 
             {/* 6. China Visa */}
-            <Card className="bg-gray-900 border-gray-800 hover:border-yellow-400 text-white transition-all hover:-translate-y-1">
-              <CardHeader className="text-center pt-8">
-                <div className="mx-auto w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                  <Globe className="h-10 w-10 text-yellow-400" />
+            <Card className="bg-gray-900 border border-gray-800 hover:border-amber-500 text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+              <CardHeader className="text-center pt-10 pb-6">
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-3xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:border-amber-500/40 transition-colors">
+                  <Globe className="h-11 w-11 text-amber-400" />
                 </div>
-                <CardTitle className="text-2xl">Business & Tourist Visa</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-white">China Business &amp; Tourist Visa</CardTitle>
               </CardHeader>
-              <CardContent className="text-center px-8 pb-8">
-                <p className="text-gray-400 mb-6">Business &amp; Tourist Visa</p>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6">
-                  <p className="text-3xl font-bold">2 Weeks Processing</p>
+              <CardContent className="text-center px-8 pb-10">
+                <p className="text-gray-400 mb-8 text-lg">Fast &amp; Reliable Processing</p>
+                
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-7 mb-8 border border-gray-700">
+                  <p className="text-4xl font-bold text-white">2 Weeks Processing</p>
                 </div>
+
                 <Button
-                  className="w-full bg-amber-600 hover:bg-amber-700"
+                  className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-lg py-6 rounded-xl font-medium transition-all"
                   onClick={() => openModal(["/images/domesticflightsneww.jpg"])}
                 >
-                  Learn More
+                  View Package Details
                 </Button>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
+      {/* ==================== END OF PROFESSIONAL PACKAGES SECTION ==================== */}
 
       {/* Flier Section */}
       <section className="py-20 bg-yellow-50">
@@ -326,7 +326,7 @@ const customerGalleryImages = [
         </div>
       </section>
 
-      {/* Customer Gallery - ONLY THIS SECTION WAS MODIFIED */}
+      {/* Customer Gallery */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -409,7 +409,7 @@ const customerGalleryImages = [
               </p>
               <p className="text-gray-600">
                 With a deep understanding of the spiritual and emotional significance
-                of Hajj and Umrah, he works closely with us with us to ensure that our services not only meet but exceed expectations inspiring confidence in all who travel with us
+                of Hajj and Umrah, he works closely with us to ensure that our services not only meet but exceed expectations inspiring confidence in all who travel with us.
               </p>
             </div>
           </div>
@@ -425,9 +425,7 @@ const customerGalleryImages = [
             </h2>
             <p className="text-lg text-gray-700">
               At <strong>First Farrufy Travel</strong>, we&apos;re more than a travel
-              agency. we're a team of dedicated professionals and passionate believers committed to making your hajj and umrah experience spiritually fulfilling and worry free.
-
-          Get to know the people who make it all possible- including our respected Brand Ambassador, who shares and supports our vision of faith, excellence and service.
+              agency. We&apos;re a team of dedicated professionals and passionate believers committed to making your hajj and umrah experience spiritually fulfilling and worry-free.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -483,7 +481,7 @@ const customerGalleryImages = [
         </div>
       </section>
 
-      {/* Modal - Single Image (Navigation hidden when only 1 image) */}
+      {/* Modal */}
       {isModalOpen && selectedImages.length > 0 && (
         <div
           className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4"
