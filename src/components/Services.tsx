@@ -291,7 +291,7 @@ const customerGalleryImages = [
                 </div>
                 <Button
                   className="w-full bg-amber-600 hover:bg-amber-700"
-                  onClick={() => openModal(["/images/domesticflightsneww.jpeg"])}
+                  onClick={() => openModal(["/dist/images/domesticflightsneww.jpg"])}
                 >
                   Learn More
                 </Button>
@@ -494,6 +494,8 @@ const customerGalleryImages = [
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
+              title="Close modal"
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-full p-1 transition-colors z-10"
               onClick={closeModal}
             >
