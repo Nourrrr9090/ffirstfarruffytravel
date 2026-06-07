@@ -291,7 +291,7 @@ const customerGalleryImages = [
                 </div>
                 <Button
                   className="w-full bg-amber-600 hover:bg-amber-700"
-                  onClick={() => openModal(["/dist/images/domesticflightsneww.jpg"])}
+                  onClick={() => openModal(["/images/domesticflightsneww.jpg"])}
                 >
                   Learn More
                 </Button>
